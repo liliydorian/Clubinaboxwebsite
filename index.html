@@ -6,130 +6,225 @@
   <title>ClubStarter</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
+    /* Reset & base */
     * {
       box-sizing: border-box;
     }
-
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #f9fafb;
-      color: #111827;
+      background: linear-gradient(135deg, #e0e7ff, #f9fafb);
+      color: #1f2937;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #1e40af;
+      outline: none;
     }
 
+    /* Header */
     header {
-      background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+      background: linear-gradient(135deg, #2563eb, #1e3a8a);
       color: white;
-      padding: 4rem 1rem 3rem;
+      padding: 5rem 1rem 4rem;
       text-align: center;
+      box-shadow: 0 8px 30px rgba(37, 99, 235, 0.3);
+      border-bottom-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
     }
-
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      font-weight: 800;
-      letter-spacing: -1px;
+      font-size: 3.75rem;
+      margin-bottom: 0.3rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.25);
     }
-
     header p {
-      font-size: 1.25rem;
-      opacity: 0.95;
+      font-size: 1.5rem;
+      max-width: 480px;
+      margin: 0 auto;
+      opacity: 0.85;
+      font-weight: 500;
     }
 
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
-      background: white;
-      padding: 1rem;
-      border-bottom: 1px solid #e5e7eb;
-      text-align: center;
-      z-index: 100;
+      background: #fff;
+      padding: 1.25rem 1rem;
+      border-bottom: 2px solid #e0e7ff;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgb(37 99 235 / 0.1);
     }
-
     nav a {
-      margin: 0 1.25rem;
-      font-weight: 600;
-      color: #1f2937;
-      text-decoration: none;
-      transition: color 0.2s;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 8px;
+      user-select: none;
+      letter-spacing: 0.02em;
     }
-
-    nav a:hover {
-      color: #2563eb;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-
-    .section {
-      background: white;
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-    }
-
-    h2 {
-      font-size: 1.75rem;
-      color: #2563eb;
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      margin-top: 1.5rem;
-      font-size: 1.2rem;
-      color: #1f2937;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-      margin-bottom: 1rem;
-    }
-
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    a.btn {
-      display: inline-block;
+    nav a:hover,
+    nav a:focus {
       background: #2563eb;
       color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.75rem;
+      box-shadow: 0 4px 12px rgb(37 99 235 / 0.4);
+      outline: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 3rem auto 5rem;
+      padding: 0 1rem;
+    }
+
+    /* Sections */
+    .section {
+      background: white;
+      padding: 3rem 2.5rem;
+      margin-bottom: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+    .section:hover {
+      box-shadow: 0 18px 32px rgba(37, 99, 235, 0.2);
+    }
+    h2 {
+      font-size: 2.25rem;
+      color: #1e40af;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    h2 svg {
+      width: 1.8rem;
+      height: 1.8rem;
+      fill: #2563eb;
+    }
+    h3 {
+      font-size: 1.35rem;
+      color: #374151;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #2563eb;
+      padding-left: 0.8rem;
       font-weight: 600;
-      text-decoration: none;
-      margin-top: 1rem;
-      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0.5rem;
+    }
+    ul li {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+    ul li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 1.2rem;
+      top: 0;
+      line-height: 1;
+    }
+    ul li a {
+      font-weight: 600;
+      color: #2563eb;
+    }
+    ul li a:hover,
+    ul li a:focus {
+      color: #1e40af;
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* Buttons */
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #2563eb;
+      color: white;
+      padding: 0.9rem 1.8rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      user-select: none;
       transition: all 0.3s ease;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
     }
-
-    a.btn:hover {
+    a.btn svg {
+      width: 1.2rem;
+      height: 1.2rem;
+      fill: white;
+    }
+    a.btn:hover,
+    a.btn:focus {
       background: #1e40af;
-      box-shadow: 0 6px 14px rgba(30, 64, 175, 0.4);
+      box-shadow: 0 8px 26px rgba(30, 64, 175, 0.6);
+      outline: none;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem 1rem;
       font-size: 0.9rem;
       color: #6b7280;
+      user-select: none;
+      border-top: 1px solid #e0e7ff;
+      margin-top: 4rem;
     }
 
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
+    /* Responsive */
+    @media (max-width: 720px) {
+      nav {
+        flex-wrap: wrap;
+        gap: 1rem;
       }
-
       header h1 {
-        font-size: 2.25rem;
+        font-size: 2.75rem;
       }
-
       header p {
+        font-size: 1.125rem;
+      }
+      .section {
+        padding: 2rem 1.5rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+      }
+      h3 {
+        font-size: 1.1rem;
+      }
+      ul li {
         font-size: 1rem;
+      }
+      a.btn {
+        font-size: 1rem;
+        padding: 0.75rem 1.4rem;
       }
     }
   </style>
@@ -148,70 +243,101 @@
     <a href="#share-story">Share</a>
   </nav>
 
-  <div class="container">
+  <main class="container">
 
-    <section id="what-you-get" class="section">
-      <h2>🎓 What You Get</h2>
+    <section id="what-you-get" class="section" aria-labelledby="what-you-get-title">
+      <h2 id="what-you-get-title">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8zM11 7h2v6h-2zm0 8h2v2h-2z"/></svg>
+        What You Get
+      </h2>
       <ul>
-        <li>✅ Customizable Club Constitution Template</li>
-        <li>✅ Ready-to-go Meeting Agendas</li>
-        <li>✅ Canva Flyers & Instagram Templates</li>
-        <li>✅ Officer Role Descriptions</li>
-        <li>✅ Email Templates to Admins & Speakers</li>
-        <li>✅ Budget Tracker in Google Sheets</li>
+        <li>Customizable Club Constitution Template</li>
+        <li>Ready-to-go Meeting Agendas</li>
+        <li>Canva Flyers &amp; Instagram Templates</li>
+        <li>Officer Role Descriptions</li>
+        <li>Email Templates to Admins &amp; Speakers</li>
+        <li>Budget Tracker in Google Sheets</li>
       </ul>
     </section>
 
-    <section id="kits" class="section">
-      <h2>🏆 Available Kits</h2>
-      <p><strong>Now Live:</strong></p>
-      <a href="https://drive.google.com/drive/folders/1QGXbLykAy46_4Z71J7RK5hbzm2LAJhIH?usp=drive_link" class="btn" target="_blank">Download Investing Club Kit</a><br><br>
-      <a href="https://drive.google.com/drive/folders/1SJgMhWSx4GBo203ZFwg19_DwRcOipg8O?usp=drive_link" class="btn" target="_blank">Download Chess Club Kit</a><br><br>
-      <a href="https://drive.google.com/drive/folders/1fum5pDcdemUZyV0cQSuaCg42Gz29OFdP?usp=drive_link" class="btn" target="_blank">Download Community Service Club Kit</a>
-      <p style="margin-top: 2rem;"><strong>Coming Soon:</strong> Mental Health Club, STEM Club</p>
+    <section id="kits" class="section" aria-labelledby="kits-title">
+      <h2 id="kits-title">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 5h14v2H5zm0 6h14v2H5zm0 6h14v2H5z"/></svg>
+        Available Kits
+      </h2>
+      <p style="font-weight: 600; color: #374151;">Now Live:</p>
+      <a href="https://drive.google.com/drive/folders/1QGXbLykAy46_4Z71J7RK5hbzm2LAJhIH?usp=drive_link" class="btn" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16l4-5h-3V4h-2v7H8z"/></svg>
+        Download Investing Club Kit
+      </a><br><br>
+      <a href="https://drive.google.com/drive/folders/1SJgMhWSx4GBo203ZFwg19_DwRcOipg8O?usp=drive_link" class="btn" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16l4-5h-3V4h-2v7H8z"/></svg>
+        Download Chess Club Kit
+      </a><br><br>
+      <a href="https://drive.google.com/drive/folders/1fum5pDcdemUZyV0cQSuaCg42Gz29OFdP?usp=drive_link" class="btn" target="_blank" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 16l4-5h-3V4h-2v7H8z"/></svg>
+        Download Community Service Club Kit
+      </a>
+      <p style="margin-top: 2rem; font-weight: 600; color: #6b7280;">
+        Coming Soon: Mental Health Club, STEM Club
+      </p>
     </section>
 
-    <section id="resources" class="section">
-      <h2>📚 Resource Library</h2>
+    <section id="resources" class="section" aria-labelledby="resources-title">
+      <h2 id="resources-title">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 17h18v2H3zm0-6h18v2H3zm0-6h18v2H3z"/></svg>
+        Resource Library
+      </h2>
 
       <h3>Leadership Skills</h3>
       <ul>
-        <li><a href="https://docs.google.com/document/d/1AGRHakyxdHe-fInKTxzfWy0eFhyYIDl5WuEwM-P1FGA/edit?usp=sharing" target="_blank">How to Be an Effective Club President (PDF Guide)</a></li>
-        
-        <li><a href="https://docs.google.com/document/d/13eQyb0c3UOm6zmGbnEwyDjv4ORum3VuoIRtR5oAhDEM/edit?usp=sharing" target="_blank">Conflict Resolution Strategies (Article)</a></li>
+        <li><a href="https://docs.google.com/document/d/1AGRHakyxdHe-fInKTxzfWy0eFhyYIDl5WuEwM-P1FGA/edit?usp=sharing" target="_blank" rel="noopener">How to Be an Effective Club President (PDF Guide)</a></li>
+        <li><a href="https://docs.google.com/document/d/13eQyb0c3UOm6zmGbnEwyDjv4ORum3VuoIRtR5oAhDEM/edit?usp=sharing" target="_blank" rel="noopener">Conflict Resolution Strategies (Article)</a></li>
       </ul>
 
       <h3>Event Planning</h3>
       <ul>
-        <li><a href="https://docs.google.com/document/d/1dFh4ruFX17E7Z1d5RJHXpDVUIU-GS_Swn5nOXAzMJQ8/edit?usp=sharing" target="_blank">Step-by-Step Event Checklist (PDF)</a></li>
-        <li><a href="https://docs.google.com/spreadsheets/d/1FooP0SoSCyDWJuVAttYuZWaciRvrOe-_P6edvKmhRxA/edit?usp=sharing" target="_blank">Sample Event Budget Template (Google Sheets)</a></li>
-        <li><a href="https://docs.google.com/document/d/1Ye6_2Cwj4SylpJQZF6PCBa8nOMo0UKt1ui_HBDWGhm4/edit?usp=sharing" target="_blank">Promotion Ideas for School Events (Article)</a></li>
+        <li><a href="https://docs.google.com/document/d/1dFh4ruFX17E7Z1d5RJHXpDVUIU-GS_Swn5nOXAzMJQ8/edit?usp=sharing" target="_blank" rel="noopener">Step-by-Step Event Checklist (PDF)</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/1FooP0SoSCyDWJuVAttYuZWaciRvrOe-_P6edvKmhRxA/edit?usp=sharing" target="_blank" rel="noopener">Sample Event Budget Template (Google Sheets)</a></li>
+        <li><a href="https://docs.google.com/document/d/1Ye6_2Cwj4SylpJQZF6PCBa8nOMo0UKt1ui_HBDWGhm4/edit?usp=sharing" target="_blank" rel="noopener">Promotion Ideas for School Events (Article)</a></li>
       </ul>
 
       <h3>Fundraising</h3>
       <ul>
-        <li><a href="https://docs.google.com/document/d/10D3oR8YknL67L6EQcym9gPp_OmGI1h1febYYR85M3R0/edit?usp=sharing" target="_blank">Fundraising Ideas & Best Practices (PDF)</a></li>
-        <li><a href="https://docs.google.com/document/d/1hVmsRkuwJ3fctu4PdS-tFBjai-9GA_JZ0V4UlRHYnX8/edit?usp=sharing" target="_blank">Sample Fundraiser Proposal (Template)</a></li>
-        <li><a href="https://docs.google.com/spreadsheets/d/19_-SbxWV6suzdBMR0GsrnwJy20vMmHAyH8OEGqrEIHw/edit?usp=sharing" target="_blank">Managing Donations Spreadsheet (Google Sheets)</a></li>
+        <li><a href="https://docs.google.com/document/d/10D3oR8YknL67L6EQcym9gPp_OmGI1h1febYYR85M3R0/edit?usp=sharing" target="_blank" rel="noopener">Fundraising Ideas &amp; Best Practices (PDF)</a></li>
+        <li><a href="https://docs.google.com/document/d/1hVmsRkuwJ3fctu4PdS-tFBjai-9GA_JZ0V4UlRHYnX8/edit?usp=sharing" target="_blank" rel="noopener">Sample Fundraiser Proposal (Template)</a></li>
+        <li><a href="https://docs.google.com/spreadsheets/d/19_-SbxWV6suzdBMR0GsrnwJy20vMlQlOVYFcA_sKMM0/edit?usp=sharing" target="_blank" rel="noopener">Donor Contact Tracker (Google Sheets)</a></li>
       </ul>
 
-      <h3>Marketing Your Club</h3>
+      <h3>Marketing & Promotion</h3>
       <ul>
-        <li><a href="https://docs.google.com/document/d/1OQTqakv5-ZZS1Gz814Pf2Ge9gq-3FpLrqNFIBAd_4DI/edit?usp=sharing" target="_blank">Social Media Best Practices (Guide)</a></li>
-         <li><a href="https://docs.google.com/document/d/1ZT1SMkXkcffsDlkabNnqgwrHAey1BuXw0ec-EgHX4Qs/edit?usp=sharing" target="_blank">Email Announcement Templates</a></li>
+        <li><a href="https://docs.google.com/document/d/1V58LGzCHByhnTX49FDr3dx9nGrNzArXqG9kaH05AloM/edit?usp=sharing" target="_blank" rel="noopener">Social Media Calendar Template (Google Docs)</a></li>
+        <li><a href="https://docs.google.com/document/d/1kcvzQyAxuQK6Fe3s9kDpm8-ZPY2Qx1VwlXKTy6qAjcQ/edit?usp=sharing" target="_blank" rel="noopener">Poster Design Tips (Article)</a></li>
+      </ul>
+
+      <h3>Club Management</h3>
+      <ul>
+        <li><a href="https://docs.google.com/document/d/1de5ZwBAnNyQj2aLFzLrgvOiFhIdkkSwLXO8Rwz7HsMM/edit?usp=sharing" target="_blank" rel="noopener">Sample Meeting Minutes Template</a></li>
+        <li><a href="https://docs.google.com/document/d/1Xx_Z1xj6Vt9B0X3TJvUkZ3kKsdxjIYqYxhTyCNRoy6M/edit?usp=sharing" target="_blank" rel="noopener">Officer Transition Guide</a></li>
       </ul>
     </section>
 
-    <section id="share-story" class="section">
-      <h2>✉️ Share Your Story</h2>
-      <p>Started a club using ClubStarter? We'd love to feature your story or templates!</p>
-      <a href="https://forms.gle/yu1Hfp178SbNr3gu6" class="btn" target="_blank">Submit Your Story</a>
+    <section id="share-story" class="section" aria-labelledby="share-story-title">
+      <h2 id="share-story-title">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 6h-5v-2h3.17L12 2 8.83 4H12v2H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-3h3a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2z"/></svg>
+        Share Your Story
+      </h2>
+      <p>
+        Started a club using ClubStarter? We’d love to hear your success stories, challenges, and ideas. 
+        <a href="mailto:hello@clubstarter.com?subject=My%20ClubStarter%20Story" target="_blank" rel="noopener">Email us</a> or
+        <a href="https://twitter.com/clubstarter" target="_blank" rel="noopener">@clubstarter on Twitter</a>.
+      </p>
     </section>
 
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 ClubStarter. Built by students, for students.
+    &copy; 2025 ClubStarter. All rights reserved.
   </footer>
 
 </body>
